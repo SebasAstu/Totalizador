@@ -8,7 +8,12 @@ function cargarEstados() {
 
   impuestos.push(impuesto);
 
-  console.log(impuestos);
+  var impuesto = new Object();
+  impuesto.code = 'NV';
+  impuesto.name = 'Nevada';
+  impuesto.imp = 8;
+
+  impuestos.push(impuesto);
   return impuestos;
 }
 export default cargarEstados;

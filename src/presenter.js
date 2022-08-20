@@ -2,6 +2,7 @@ import cargarEstados from "./array";
 import multiplicar from "./multiplicador";
 import calcularPrecioNeto from "./multiplicador";
 import calcularImpuesto from "./OperacionDescuento";
+import buscarEstado from "./estado";
 
 var precioNeto=0;
 var impuestodiv =0;
@@ -18,6 +19,7 @@ const resultadoNetoForm = document.querySelector("#resultadoNeto-form");
 const divResNeto = document.querySelector("#resultado-divNeto");
 
 const impuestoForm =document.querySelector("#impuesto-form");
+const estadoImpuesto= document.querySelector("#impuesto-estado");
 const divImpuesto= document.querySelector("#impuesto-div");
 
 form.addEventListener("submit", (event) => {
@@ -50,11 +52,13 @@ impuestoForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   var imp=[];
-  imp= cargarEstados();
-  console.log(imp);
-  
   var impuesto = new Object();
-  impuesto=imp[0];
+  imp= cargarEstados();
+  const impuestoEstado = estadoImpuesto.value;
+  //console.log(imp);
+  
+  
+  impuesto= buscarEstado(imp,impuestoEstado);
   console.log(impuesto);
   impuestodiv=calcularImpuesto(precioNeto,impuesto.imp);
 
