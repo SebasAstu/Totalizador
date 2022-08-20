@@ -1,6 +1,10 @@
-import sumar from "./sumador";
+import cargarEstados from "./array";
 import multiplicar from "./multiplicador";
 import calcularPrecioNeto from "./multiplicador";
+import calcularImpuesto from "./OperacionDescuento";
+
+var precioNeto=0;
+var impuestodiv =0;
 
 const first = document.querySelector("#primer-numero");
 const form = document.querySelector("#sumar-form");
@@ -37,13 +41,22 @@ resultadoNetoForm.addEventListener("submit", (event) => {
 
   const cantItems = Number.parseInt(first.value);
   const precioUnitario= Number.parseInt(firstMul.value);
+  precioNeto=calcularPrecioNeto(cantItems,precioUnitario);
 
-  divResNeto.innerHTML = "<p>" +"El precio neto (unitariox cant Item) es: "+ calcularPrecioNeto(cantItems,precioUnitario) + "</p>";
+  divResNeto.innerHTML = "<p>" +"El precio neto (unitario x cant Item) es: "+ precioNeto + "</p>";
 });
 
 impuestoForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  var imp=[];
+  imp= cargarEstados();
+  console.log(imp);
+  
+  var impuesto = new Object();
+  impuesto=imp[0];
+  console.log(impuesto);
+  impuestodiv=calcularImpuesto(precioNeto,impuesto.imp);
 
-  divImpuesto.innerHTML = "<p>" +"El impuesto de California es: 8.25%" + "</p>";
+  divImpuesto.innerHTML = "<p>" +"El impuesto para " + impuesto.name +" %:"+impuesto.imp +" es: "+impuestodiv +"</p>";
 });
