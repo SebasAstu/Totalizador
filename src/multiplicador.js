@@ -1,5 +1,5 @@
-function multiplicar(a, b) {
-    return a * b;
+  function calcularPrecioNeto(a,b){
+    return a*b;
   }
-  
-  export default multiplicar;
+
+  export default calcularPrecioNeto;
