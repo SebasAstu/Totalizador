@@ -1,0 +1,5 @@
+function calcularDescuento(a,b){
+    return (a*b)/100;
+  }
+
+  export default calcularDescuento;
