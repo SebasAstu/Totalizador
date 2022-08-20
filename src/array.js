@@ -8,19 +8,27 @@ function cargarEstados() {
 
   impuestos.push(impuesto);
 
-  var impuesto1 = new Object();
+  var impuesto = new Object();
   impuesto.code = 'NV';
   impuesto.name = 'Nevada';
   impuesto.imp = 8;
 
-  impuestos.push(impuesto1);
+  impuestos.push(impuesto);
 
-  var impuesto2 = new Object();
+  var impuesto = new Object();
   impuesto.code = 'UT';
   impuesto.name = 'Utah';
   impuesto.imp = 6.65;
 
-  impuestos.push(impuesto2);
+  impuestos.push(impuesto);
+
+  var impuesto = new Object();
+  impuesto.code = 'AL';
+  impuesto.name = 'Albani';
+  impuesto.imp = 4;
+
+  impuestos.push(impuesto);
+
   return impuestos;
 }
 export default cargarEstados;
