@@ -29,6 +29,9 @@ const divImpuesto= document.querySelector("#impuesto-div");
 const descuentoForm = document.querySelector("#descuento-form");
 const divDescuento= document.querySelector("#descuento-div");
 
+const totalizarForm = document.querySelector("#totalidad-form");
+const totalizarDiv = document.querySelector("#totalizar-div");
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -68,7 +71,7 @@ impuestoForm.addEventListener("submit", (event) => {
   
   impuesto= buscarEstado(imp,impuestoEstado);
   console.log(impuesto);
-  descuentoDiv=calcularImpuesto(precioNeto,impuesto.imp);
+  impuestodiv=calcularImpuesto(precioNeto,impuesto.imp);
 
   divImpuesto.innerHTML = "<p>" +"El impuesto para " + impuesto.name +" %:"+impuesto.imp +" es: "+impuestodiv +"</p>";
 });
@@ -82,4 +85,13 @@ descuentoForm.addEventListener("submit", (event) => {
   descuentoDiv=calcularDescuento(precioNeto,descuento);
 
   divDescuento.innerHTML = "<p>" +"El Descuento para " + cantidadItems +" items es de: "+descuento +"%"+"</p>";
+});
+
+totalizarForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  var ecuacionFinal=0;
+  ecuacionFinal = precioNeto+impuestodiv-descuentoDiv;
+
+  totalizarDiv.innerHTML = "<p>" +"Precio total(descuento e impuesto): "+ecuacionFinal + "</p>";
 });
