@@ -22,6 +22,9 @@ const impuestoForm =document.querySelector("#impuesto-form");
 const estadoImpuesto= document.querySelector("#impuesto-estado");
 const divImpuesto= document.querySelector("#impuesto-div");
 
+const descuentoForm = document.querySelector("#descuento-form");
+const divDescuento= document.querySelector("#descuento-div");
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -63,4 +66,13 @@ impuestoForm.addEventListener("submit", (event) => {
   impuestodiv=calcularImpuesto(precioNeto,impuesto.imp);
 
   divImpuesto.innerHTML = "<p>" +"El impuesto para " + impuesto.name +" %:"+impuesto.imp +" es: "+impuestodiv +"</p>";
+});
+
+descuentoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (precioNeto>=1000)
+  divDescuento.innerHTML = "<p>" +"Usted cuenta con descuento"+ "</p>";
+  else
+  divDescuento.innerHTML = "<p>" +"Usted no cuenta con descuento"+ "</p>";
 });
