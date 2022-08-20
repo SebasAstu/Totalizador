@@ -13,6 +13,9 @@ const divMul= document.querySelector("#resultado-divMul");
 const resultadoNetoForm = document.querySelector("#resultadoNeto-form");
 const divResNeto = document.querySelector("#resultado-divNeto");
 
+const impuestoForm =document.querySelector("#impuesto-form");
+const divImpuesto= document.querySelector("#impuesto-div");
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -36,4 +39,11 @@ resultadoNetoForm.addEventListener("submit", (event) => {
   const precioUnitario= Number.parseInt(firstMul.value);
 
   divResNeto.innerHTML = "<p>" +"El precio neto (unitariox cant Item) es: "+ calcularPrecioNeto(cantItems,precioUnitario) + "</p>";
+});
+
+impuestoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+
+  divImpuesto.innerHTML = "<p>" +"El impuesto de California es: 8.25%" + "</p>";
 });
